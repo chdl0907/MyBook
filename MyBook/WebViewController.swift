@@ -9,11 +9,23 @@
 import UIKit
 
 class WebViewController: UIViewController {
+    
+    @IBOutlet weak var shopWebView: UIWebView!
+    // 받아올 url정보를 담을 변수선언
+    var shopURL:String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        guard let bookURL=shopURL else{
+            return
+        }
+        
+        if let urlIns=URL(string: bookURL){
+            let urlRequest=URLRequest(url: urlIns)
+            self.shopWebView.loadRequest(urlRequest)
+        }
     }
 
     override func didReceiveMemoryWarning() {

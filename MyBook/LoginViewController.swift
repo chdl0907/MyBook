@@ -8,8 +8,32 @@
 
 import UIKit
 
+// id/pw정보를 보내줄 protocol선언
+protocol LoginViewControllerProtocol{
+    func send(withId:String, password:String)
+}
+
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var idTextField: UITextField!
+    @IBOutlet weak var pwTextField: UITextField!
+    
+    @IBAction func Login(_ sender: Any) {
+        
+        let idStr=idTextField.text
+        let pwStr=pwTextField.text
+        
+        if let prevVC=self.delegate {
+            if let id=idStr,let pw=pwStr{
+                prevVC.send(withId: id, password: pw)
+            }
+        }
+        // 값이 없는경우 닫기 수행(모달 -> dismiss/ 팝업 -> navigationcontoller)
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    var delegate:LoginViewControllerProtocol?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
