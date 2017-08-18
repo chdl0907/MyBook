@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Foundation
 
-class BookListTableViewController: UITableViewController {
+class BookListTableViewController: UITableViewController, AddBookDelegate {
     
     // cell에 출력할 array를 선언한다.
     var books:[Book]=Array()
@@ -45,9 +46,27 @@ class BookListTableViewController: UITableViewController {
                        description: "무언가를 상실한 사람들, 그리고 상실 이후의 삶을 살아가는 이들의 이야기를 담은 일곱 편의 작품이 담겨 있다. 한 인간 내면의 복합적인 감정부터 다종다양한 관계의 모순, 더 나아가 소위 신의 뜻이라 비유되는 알 수 없는 상황에 처한 인간의 고뇌까지 담아낸 이야기를 만나볼 수 있다.",
                        url:"http://digital.kyobobook.co.kr/digital/ebook/ebookDetail.ink?barcode=4808954645614")
         
+        let book4=Book(title: "ttttt",
+                       writer: "ttttt",
+                       publisher: nil,
+                       coverImage: nil,
+                       price: nil,
+                       description: nil,
+                       url:nil)
+        
+        let book5=Book(title: "ttttt",
+                       writer: "ttttt",
+                       publisher: "tttttt",
+                       coverImage: nil,
+                       price: nil,
+                       description: nil,
+                       url:nil)
+        
         self.books.append(book1)
         self.books.append(book2)
         self.books.append(book3)
+        self.books.append(book4)
+        self.books.append(book5)
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,17 +90,39 @@ class BookListTableViewController: UITableViewController {
     // 반환받은 cell을 뿌려줌
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-        let book=self.books[indexPath.row]
         
-        cell.textLabel?.text=book.title
-        cell.detailTextLabel?.text=book.writer
-        cell.imageView?.image=book.coverImage
+
+        // bookTableViewCell에 할당
+        if let bookCell=cell as? BookTableViewCell{
+            let book=self.books[indexPath.row]
+        
+
+        
+        // Configure the cell...
+        //let book=self.books[indexPath.row]
+        
+            // 가격에 천원단위 표기하는 방법
+            let numFormatter: NumberFormatter=NumberFormatter()
+            numFormatter.numberStyle=NumberFormatter.Style.decimal
+        
+            if let price = book.price{
+                let priceStr = numFormatter.string(from: NSNumber(integerLiteral: price))
+                bookCell.priceCellLabel.text=priceStr
+            }else{
+                // title에 빈 문자열이 할당된경우에 화면에 나타나지 않도록 처리
+                bookCell.priceCellLabel.text=""
+            }
+        
+            bookCell.titleCellLabel.text=book.title
+            bookCell.writerCellLabel.text=book.writer
+            bookCell.imageCellView.image=book.coverImage
+            
+            return bookCell
+        }
+        
 
         return cell
     }
-    
 
     /*
     // Override to support conditional editing of the table view.
@@ -121,24 +162,66 @@ class BookListTableViewController: UITableViewController {
     // segue : 전달하고자 하는 정보
     // sender : 전환되는 주체
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let cell=sender as? UITableViewCell
-        let vc=segue.destination as? BookDetailViewController
-        
-        guard let selectedCell=cell, let detailVC=vc else{
-            return
+        // 다음 화면이 2개이상인경우 segue종류에 따라 다음화면을 예상할수 있음(detail화면 vs add화면)
+        if segue.identifier=="addvc"{
+            
+            // 프로토콜과 어떤규약이 있는지 알아야함
+            if let addVC=segue.destination as? AddBookViewController{
+                addVC.delegate=self
+            }
+            
+        }else if segue.identifier=="datailvc"{
+            // detail화면
+            let cell=sender as? UITableViewCell
+            let vc=segue.destination as? BookDetailViewController
+            
+
+            guard let selectedCell=cell, let detailVC=vc else{
+                return
+            }
+            
+            if let idx=self.tableView.indexPath(for: selectedCell){
+                detailVC.book=self.books[idx.row]
+            }
+            /*
+             // sender의 return type이 any이므로 UITableViewCell형으로 형변환을 해줘야함
+             let cell=sender as? UITableViewCell
+             if let selCell=cell{
+             let cellIdx=self.tableView.indexPath(for: selCell)
+             print(cellIdx?.row)
+             }*/
         }
-        
-        if let idx=self.tableView.indexPath(for: selectedCell){
-            detailVC.book=self.books[idx.row]
-        }
-        /*
-        // sender의 return type이 any이므로 UITableViewCell형으로 형변환을 해줘야함
-        let cell=sender as? UITableViewCell
-        if let selCell=cell{
-            let cellIdx=self.tableView.indexPath(for: selCell)
-            print(cellIdx?.row)
-        }*/
-    
     }
 
+    // delegate시 참조할 함수(addbook)
+    func sendNewBook(book: Book) {
+        self.books.append(book)
+        // 화면전환 후 다시 돌아왔을때 데이터 다시 리로드 해서 데이터 출력되도록 구현
+        self.tableView.reloadData()
+    }
+
+}
+
+
+
+class BookTableViewCell: UITableViewCell {
+    
+    
+    @IBOutlet weak var titleCellLabel: UILabel!
+    @IBOutlet weak var writerCellLabel: UILabel!
+    @IBOutlet weak var publisherCellLabel: UILabel!
+    @IBOutlet weak var priceCellLabel: UILabel!
+    @IBOutlet weak var imageCellView: UIImageView!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        // Configure the view for the selected state
+    }
+    
 }

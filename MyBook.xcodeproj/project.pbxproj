@@ -17,6 +17,7 @@
 		94AEB5CE1F455A4A0037CDF0 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AEB5CD1F455A4A0037CDF0 /* Book.swift */; };
 		94AEB5D01F4563380037CDF0 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AEB5CF1F4563380037CDF0 /* BookDetailViewController.swift */; };
 		94AEB5D21F456E750037CDF0 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AEB5D11F456E750037CDF0 /* WebViewController.swift */; };
+		94AEB5D61F466CAF0037CDF0 /* AddBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AEB5D51F466CAF0037CDF0 /* AddBookViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		94AEB5CD1F455A4A0037CDF0 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		94AEB5CF1F4563380037CDF0 /* BookDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		94AEB5D11F456E750037CDF0 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		94AEB5D51F466CAF0037CDF0 /* AddBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddBookViewController.swift; path = ../AddBookViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 		9449657F1F451E3A004FE8D6 /* MyBook */ = {
 			isa = PBXGroup;
 			children = (
+				94AEB5D51F466CAF0037CDF0 /* AddBookViewController.swift */,
 				94AEB5CB1F4550110037CDF0 /* BookListTableViewController.swift */,
 				94AEB5CD1F455A4A0037CDF0 /* Book.swift */,
 				944965801F451E3A004FE8D6 /* AppDelegate.swift */,
@@ -153,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				944965931F4522BF004FE8D6 /* LoginViewController.swift in Sources */,
+				94AEB5D61F466CAF0037CDF0 /* AddBookViewController.swift in Sources */,
 				944965831F451E3A004FE8D6 /* ViewController.swift in Sources */,
 				94AEB5D01F4563380037CDF0 /* BookDetailViewController.swift in Sources */,
 				94AEB5CC1F4550110037CDF0 /* BookListTableViewController.swift in Sources */,

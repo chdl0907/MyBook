@@ -32,8 +32,15 @@ class BookDetailViewController: UIViewController {
         self.bookCoverImageView.image=newBook.coverImage
         self.bookWriterLabel.text=newBook.writer
         self.bookPublisherLabel.text=newBook.publisher
-        self.bookPriceLabel.text=String(newBook.price)
+        
+        if let bookPrice=newBook.price{
+            self.bookPriceLabel.text=String(bookPrice)
+        }
         self.bookDescriptionTextView.text=newBook.description
+        
+
+        
+        
         
         //Title표시
         self.navigationItem.title=newBook.title
