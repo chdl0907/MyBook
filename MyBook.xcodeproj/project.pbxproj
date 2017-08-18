@@ -13,11 +13,11 @@
 		944965881F451E3A004FE8D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 944965871F451E3A004FE8D6 /* Assets.xcassets */; };
 		9449658B1F451E3A004FE8D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 944965891F451E3A004FE8D6 /* LaunchScreen.storyboard */; };
 		944965931F4522BF004FE8D6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944965921F4522BF004FE8D6 /* LoginViewController.swift */; };
-		94AEB5CC1F4550110037CDF0 /* BookListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AEB5CB1F4550110037CDF0 /* BookListTableViewController.swift */; };
 		94AEB5CE1F455A4A0037CDF0 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AEB5CD1F455A4A0037CDF0 /* Book.swift */; };
 		94AEB5D01F4563380037CDF0 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AEB5CF1F4563380037CDF0 /* BookDetailViewController.swift */; };
 		94AEB5D21F456E750037CDF0 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AEB5D11F456E750037CDF0 /* WebViewController.swift */; };
-		94AEB5D61F466CAF0037CDF0 /* AddBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AEB5D51F466CAF0037CDF0 /* AddBookViewController.swift */; };
+		94AEB5FD1F46C8B50037CDF0 /* BookListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AEB5FC1F46C8B50037CDF0 /* BookListTableViewController.swift */; };
+		94AEB5FF1F46C8BA0037CDF0 /* AddBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AEB5FE1F46C8BA0037CDF0 /* AddBookViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,11 +29,11 @@
 		9449658A1F451E3A004FE8D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9449658C1F451E3A004FE8D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		944965921F4522BF004FE8D6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		94AEB5CB1F4550110037CDF0 /* BookListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BookListTableViewController.swift; path = ../BookListTableViewController.swift; sourceTree = "<group>"; };
 		94AEB5CD1F455A4A0037CDF0 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		94AEB5CF1F4563380037CDF0 /* BookDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		94AEB5D11F456E750037CDF0 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
-		94AEB5D51F466CAF0037CDF0 /* AddBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddBookViewController.swift; path = ../AddBookViewController.swift; sourceTree = "<group>"; };
+		94AEB5FC1F46C8B50037CDF0 /* BookListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookListTableViewController.swift; sourceTree = "<group>"; };
+		94AEB5FE1F46C8BA0037CDF0 /* AddBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBookViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,9 +66,9 @@
 		9449657F1F451E3A004FE8D6 /* MyBook */ = {
 			isa = PBXGroup;
 			children = (
-				94AEB5D51F466CAF0037CDF0 /* AddBookViewController.swift */,
-				94AEB5CB1F4550110037CDF0 /* BookListTableViewController.swift */,
+				94AEB5FC1F46C8B50037CDF0 /* BookListTableViewController.swift */,
 				94AEB5CD1F455A4A0037CDF0 /* Book.swift */,
+				94AEB5FE1F46C8BA0037CDF0 /* AddBookViewController.swift */,
 				944965801F451E3A004FE8D6 /* AppDelegate.swift */,
 				944965821F451E3A004FE8D6 /* ViewController.swift */,
 				944965841F451E3A004FE8D6 /* Main.storyboard */,
@@ -156,11 +156,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				944965931F4522BF004FE8D6 /* LoginViewController.swift in Sources */,
-				94AEB5D61F466CAF0037CDF0 /* AddBookViewController.swift in Sources */,
+				94AEB5FF1F46C8BA0037CDF0 /* AddBookViewController.swift in Sources */,
 				944965831F451E3A004FE8D6 /* ViewController.swift in Sources */,
 				94AEB5D01F4563380037CDF0 /* BookDetailViewController.swift in Sources */,
-				94AEB5CC1F4550110037CDF0 /* BookListTableViewController.swift in Sources */,
 				94AEB5D21F456E750037CDF0 /* WebViewController.swift in Sources */,
+				94AEB5FD1F46C8B50037CDF0 /* BookListTableViewController.swift in Sources */,
 				94AEB5CE1F455A4A0037CDF0 /* Book.swift in Sources */,
 				944965811F451E3A004FE8D6 /* AppDelegate.swift in Sources */,
 			);

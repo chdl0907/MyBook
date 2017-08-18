@@ -51,7 +51,7 @@ class AddBookViewController: UIViewController {
                           publisher: publisherTextField.text,
                           coverImage: coverImageView.image,
                           price: optPrice,
-                          description: descriptionTextView.text,
+                          desc: descriptionTextView.text,
                           url: nil)
             
             
